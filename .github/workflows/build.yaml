@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
              sudo apt-get update
-             sudo apt-get install build-essentials libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev qtbase5-dev
+             sudo apt-get install build-essential libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev qtbase5-dev
              
       # Compile the application
       - name: Compile
@@ -55,7 +55,7 @@ jobs:
       - name: Install dependencies
         run: |
              sudo apt-get update
-             sudo apt-get install build-essentials libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev qtbase5-dev
+             sudo apt-get install build-essential libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev qtbase5-dev
              
       # Compile the application
       - name: Compile
