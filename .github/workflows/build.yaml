@@ -1,0 +1,47 @@
+name: Build
+on:
+  push:               # Run on push
+  pull_request:       # Run on pull-request
+
+
+jobs:
+  #
+  # GNU/Linux build (we run on Ubuntu 16.04 to generate AppImage)
+  #
+  build-linux:
+    runs-on: ubuntu-latest, ubuntu-24.04-arm
+    strategy:
+      fail-fast: false
+    steps:
+      # Checkout the repository
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      # Verbose CPU
+      - name: cpu
+        run: cat /proc/cpuinfo
+      # Install Qt
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+      # Install additional dependencies
+      - name: Install dependencies
+        run: |
+             sudo apt-get update
+             sudo apt-get install libgl1-mesa-dev libxkbcommon-x11-0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-render-util0 libxcb-xinerama0 libzstd-dev
+             
+      # Compile the application
+      - name: Compile
+        run: |
+             cd src
+             qmake TestQtActions.pro CONFIG+=release PREFIX=/usr
+             make -j4
+             
+      #
+
+
+
+
+
+
+
